@@ -1,0 +1,20 @@
+class Solution {
+    public int maximumSwap(int num) {
+        char[] arr = String.valueOf(num).toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+            int max = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] >= arr[max]) {
+                    max = j;
+                }
+            }
+            if (arr[max] > arr[i]) {
+                char temp = arr[i];
+                arr[i] = arr[max];
+                arr[max] = temp;
+                break;
+            }
+        }
+        return Integer.parseInt(new String(arr));
+    }
+}
